@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <!-- Loading bootstrap css file to format our html -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+  <!-- Loading our own styles which is an animation for spinning wheels indicating waiting time -->
+  <link href="style.css" rel="stylesheet" id="bootstrap-css" />
+
+  <!-- Loading bootstrap css file to format our html -->
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+  <!-- Loading axios library necessary for making HTTP GET requests -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Mock Stock</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 style="text-align: center;">Mock Stock</h1>
+    <h3 style="text-align: center;">The Stock Market Simulator</h3>
+    <hr>
+    <h4 style="text-align: left;">Balances and Positions</h4>
+    <div>
+      <label for="account_value">Account value:</label>
+      <span id="account_value"></span>
+      <label for="account_dollar_gain">Total Gain($):</label>
+      <span id="account_dollar_gain"></span>
+      <label for="account_percent_gain">Total Gain(%):</label>
+      <span id="account_percent_gain"></span>
+    </div>
+    <div>
+      <label for="cash">Cash:</label>
+      <span id="cash"></span>
+    </div>
+    <div>
+      <label for="stock_value">Stock Value:</label>
+      <span id="stock_value"></span>
+    </div>
+
+    <table id="positions_table" style="width:80%">
+      <thead id="table_head">
+        <th>Company Name</th>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Cost</th>
+        <th>Mkt value</th>
+        <th>Gain($)</th>
+        <th>Gain(%)</th>
+      </thead>
+      <tbody id="table_body">
+      </tbody>
+    </table>
+    <div>
+      <input type="submit" name="submit_refresh" id="submit_refresh" value="Refresh Portfolio"
+        class="btn btn-primary mt-8" onclick="Submit_Refresh()" />
+
+      <span class="loader text-center" id="refresh_loader"></span>
+      <span id="refresh_status"></span>
+    </div>
+    <hr>
+    <h4 style="text-align: left;">Get Quote</h4>
+    <div>
+      <label for="quote_symbol">Enter Stock Symbol:</label>
+      <input type="text" name="quote_symbol" id="quote_symbol" />
+      <input type="submit" name="submit_quote" id="submit_quote" value="Get Quote" class="btn btn-primary mt-8"
+        onclick="Submit_Quote()" />
+
+      <span class="loader text-center" id="quote_loader"></span>
+      <span id="quote_status"></span>
+
+    </div>
+    <div>
+      <label for="quote_company_name">Company Name:</label>
+      <span id="quote_company_name"></span>
+    </div>
+    <div>
+      <label for="quote_price">Latest Price Per Share:</label>
+      <span id="quote_price"></span>
+    </div>
+    <hr>
+    <h4 style="text-align: left;">Initiate New Trade</h4>
+    <div>
+      <label for="buy_select">Buy</label>
+      <input type="radio" name="buy_sell" id="buy_select" value="buy" />
+      <label for="sell_select">Sell</label>
+      <input type="radio" name="buy_sell" id="sell_select" value="sell" />
+      <div>
+        <label for="trade_symbol">Stock Symbol:</label>
+        <input type="text" name="trade_symbol" id="trade_symbol" />
+      </div>
+      <div>
+        <label for="trade_shares">Number of Shares:</label>
+        <input type="text" name="trade_shares" id="trade_shares" />
+      </div>
+      <div>
+        <input type="submit" name="submit_trade" id="submit_trade" value="Place Order" class="btn btn-primary mt-8"
+          onclick="Submit_Trade()" />
+
+        <span class="loader text-center" id="trade_loader"></span>
+        <span id="trade_status"></span>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<!-- Use script.js to handle events on this page -->
+<script type="text/javascript" src="script.js"></script>
+
+</html>
