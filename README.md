@@ -1,5 +1,5 @@
 # Trade Simulator
-Trade Simulator Simulator
+Trade Simulator
 
 This project requirement was to develop a complete software solution for an industrial problem. I designed a fullstack project for mock stock market trading using real-time market data in a risk-free environment called Mock Stock. 
 
