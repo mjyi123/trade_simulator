@@ -78,6 +78,3 @@ Backend testing using [Chai](https://www.chaijs.com) and [Mocha](https://mochajs
 ```bash
 npm test
 ```
-
-## Youtube Demo Video:
-You can watch this demo [here](https://youtu.be/WHd30ijnD-U).
